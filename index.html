@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="../dist/MarkerCluster.Default.ie.css" /><![endif]-->
     <link rel="stylesheet" href="css/leaflet.label.css" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>	
     <link rel="stylesheet" href="css/screen.css" />
 
 </head>
@@ -19,11 +20,11 @@
 
     <div id="map"></div>
     <div id="filter-container">
-        <form class="form-search" class="noSelect" onSubmit="addCsvMarkers(); return false;">
+		<form id="custom-search-form" class="form-search form-horizontal pull-right" class="noSelect" onSubmit="addCsvMarkers(); return false;">
             <a href="#" id="clear" class="leaflet-popup-close-button">&#215;</a>
             <div class="input-append">
-                <input type="text" id="filter-string" class="input-medium search-query search-box" autocomplete="off">
-                <button type="submit" class="btn search-box"><i class="icon-search"></i></button>
+				<input type="text" id="filter-string" class="search-query" autocomplete="off" placeholder="e.g. Gedung, Ruang, etc.">
+				<button type="submit" class="btn"><i class="icon-search"></i></button>
                 <!-- <span class="add-on">
                 </span> -->
             </div>

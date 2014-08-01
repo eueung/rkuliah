@@ -1,8 +1,8 @@
-var basemap = new L.TileLayer(baseUrl, {maxZoom: 17, attribution: baseAttribution, subdomains: subdomains, opacity: opacity});
+var basemap = new L.TileLayer(baseUrl, {maxZoom: 18, attribution: baseAttribution, subdomains: subdomains, opacity: opacity});
 
-var center = new L.LatLng(0, 0);
+var center = new L.LatLng(startLat,startLng);
 
-var map = new L.Map('map', {center: center, zoom: 2, maxZoom: maxZoom, layers: [basemap]});
+var map = new L.Map('map', {center: center, zoom: startZoom, maxZoom: maxZoom, layers: [basemap]});
 
 var popupOpts = {
     autoPanPadding: new L.Point(5, 50),
@@ -108,7 +108,7 @@ function populateTypeAhead(csv, delimiter) {
         for (var j = items.length - 1; j >= 0; j--) {
             var item = items[j].strip();
             item = item.replace(/"/g,'');
-            if (item.indexOf("http") !== 0 && isNaN(parseFloat(item))) {
+            if (item.indexOf("http") !== 0 && j > 1 && item != "") {
                 typeAheadSource.push(item);
                 var words = item.split(/\W+/);
                 for (var k = words.length - 1; k >= 0; k--) {
